@@ -1,0 +1,24 @@
+{
+  "name": "llm.ccm.api",
+  "version": "1.0.0",
+  "description": "care cell managemnt api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "start:dev": "nodemon ./bin/www"
+  },
+  "author": "LLM Dev Team",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "mysql2": "^1.6.1",
+    "sequelize": "^4.40.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4",
+    "sequelize-cli": "^5.1.0"
+  }
+}
