@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput,Button , Alert } from 'react-native';
+import { StyleSheet, Text, View, TextInput,Button , Alert ,Image } from 'react-native';
+import { Login } from './components/Login';
 
 export default class App extends React.Component {
   
@@ -16,27 +17,10 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Welcome to LLM CCM!</Text>
-        
-        <TextInput
-        style={{height: 40, width:200, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.mobile}/>  
+        <Image source={require('./assets/logo.png')} style={styles.logo} />
+        <Text style={styles.header}>Welcome to CCM!</Text>
 
-        <TextInput
-        style={{height: 40, width:200, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.password}/>   
-
-       <Button
-          onPress={() => {
-            Alert.alert('You tapped the button!');
-          }}
-          title="Submit"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-       
+        <Login></Login>
       </View>
     );
   }
@@ -49,4 +33,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  header:{
+    fontSize:18,
+    marginTop:0,
+    marginBottom:20
+  },
+  logo:{
+    
+  }
 });
