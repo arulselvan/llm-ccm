@@ -19,7 +19,6 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <Image source={require('./assets/logo.png')} style={styles.logo} />
         <Text style={styles.header}>Welcome to CCM!</Text>
-
         <Login></Login>
       </View>
     );
