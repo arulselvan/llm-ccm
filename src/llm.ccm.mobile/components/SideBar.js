@@ -1,4 +1,5 @@
 import React from 'react';
+import {AsyncStorage} from 'react-native';
 import {
     Button,
     Text,
@@ -6,34 +7,45 @@ import {
     List,
     ListItem,
     Content,
-    Icon
+    Image,View
+    
 } from "native-base";
 
-const careCellRoutes = ["Home", "Souls", "Leaders", "House Visit", "Prayer Request", "Church Service"];
+const careCellRoutes = ["Home", "Soul", "Leaders", "House Visit", "Prayer Request", "Church Service"];
 
 export class SideBar extends React.Component {
 
     constructor(props) {
         super(props);
-
     }
+
+    _signOutAsync = async () => {
+        await AsyncStorage.setItem('userToken', '');
+        this.props.navigation.navigate('Auth');
+    };
 
     render() {
         return (
             <Container>
-                <Content>
-                    <Image></Image>
+                <Content style={{paddingTop:40}}>
+
+                    
                     <List 
-                        dataArray={careCellRoutes}
-                        contentContainerStyle={{ mariginTop: 120 }}
+                        dataArray={careCellRoutes}                     
                         renderRow={data => {
                             return (
-                                <ListItem button onPress={() => this.props.navigation.navigate(data)} >
+                                <ListItem  onPress={() => this.props.navigation.navigate(data)} >
                                     <Text>{data}</Text>
-                                    </ListItem>
+                                </ListItem>
                                 )
                             }}
-                    />           
+                    > 
+                    </List> 
+                    <List>
+                        <ListItem button onPress={()=>this._signOutAsync()} >
+                            <Text>LogOut</Text>
+                        </ListItem>
+                    </List>         
                 </Content>
             </Container>
         )
