@@ -2,8 +2,9 @@
    CCM is the open source tool for church/ministry care cell management.
 
 
-# Demo
-
+# Demo & Preview
+    
+   [Live Preview](https://expo.io/@arulselvan/llm-ccm-mobile)
 
 # Installation
 
