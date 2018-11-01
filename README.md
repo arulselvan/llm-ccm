@@ -1,5 +1,5 @@
 # llm-ccm(Life Line Ministries - Care Cell Management)  
-   CCM is the open source tool for church care cell management.
+   CCM is the open source tool for church/ministry care cell management.
 
 
 # Demo
