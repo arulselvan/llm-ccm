@@ -1,5 +1,5 @@
 import React from 'react';
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage, Dimensions, Platform, Image } from 'react-native';
 import {
     Button,
     Text,
@@ -7,11 +7,38 @@ import {
     List,
     ListItem,
     Content,
-    Image,View
-    
+    Icon,
+    Right, Left, Body, Separator
 } from "native-base";
 
-const careCellRoutes = ["Home", "Soul", "Leaders", "House Visit", "Prayer Request", "Church Service"];
+const careCellRoutesDataList = [
+    {
+        text:"Souls",
+        route:"Soul",
+        icon: "md-people"
+    }, 
+    {
+        text:"Leaders",
+        route:"Leader",
+        icon: "md-man"
+    }, 
+    {
+        text:"Prayer Request",
+        route:"PrayerRequest",
+        icon: "md-help-circle"
+    }, 
+    {
+        text:"House Visit",
+        route:"HouseVisit",
+        icon: "md-home"
+    },     
+    {
+        text:"Church Service",
+        route:"ChurchService",
+        icon: "arrow-forward"
+    }]
+
+const drawerCover = require("../assets/logo.png");
 
 export class SideBar extends React.Component {
 
@@ -24,30 +51,85 @@ export class SideBar extends React.Component {
         this.props.navigation.navigate('Auth');
     };
 
+    goTo = (routeName) => {
+        this.props.navigation.navigate(routeName)
+    }  
+
     render() {
+
+        let careCellRoutes = null;
+
+        if(careCellRoutesDataList.length > 0){
+            careCellRoutes = careCellRoutesDataList.map((routeDetail,index) =>{
+                return(
+                    <ListItem key={index} icon onPress={() => this.goTo(routeDetail.route)}>
+                        <Left>
+                            <Button style={{ backgroundColor: "#9ECC5A" }}>
+                                <Icon active name={routeDetail.icon} />
+                            </Button>
+                        </Left>
+                        <Body>
+                            <Text>{routeDetail.text}</Text>
+                        </Body>
+                        <Right>
+                            <Icon name="arrow-forward" />
+                        </Right>
+                    </ListItem>
+                )
+            })
+        }
+
         return (
             <Container>
-                <Content style={{paddingTop:40}}>
+                <Content bounces={false}
+                    style={{ flex: 1, backgroundColor: "#fff", top: -1 }}>
 
-                    
-                    <List 
-                        dataArray={careCellRoutes}                     
-                        renderRow={data => {
-                            return (
-                                <ListItem  onPress={() => this.props.navigation.navigate(data)} >
-                                    <Text>{data}</Text>
-                                </ListItem>
-                                )
-                            }}
-                    > 
-                    </List> 
+                    <Content style={styles.drawerCover}>
+                        <Text style={{ paddingTop: 100, textAlign: "left" }}>
+                            Welcome User!   
+                        </Text>
+                        <Button title="Logout" style={{ paddingTop: 100, backgroundColor: "red" }} onPress={() => this._signOutAsync()}> 
+                            
+                        </Button>
+                    </Content>
+
+                    <Image source={require('../assets/logo.png')} square style={styles.drawerImage} />
                     <List>
-                        <ListItem button onPress={()=>this._signOutAsync()} >
+                        <Separator bordered>
+                            <Text>Care Cell</Text>
+                        </Separator>
+                         {careCellRoutes}
+                        <Separator bordered>
+                            <Text>Region</Text>
+                        </Separator>
+                        <ListItem button onPress={() => this._signOutAsync()} >
                             <Text>LogOut</Text>
                         </ListItem>
-                    </List>         
+                    </List>
                 </Content>
             </Container>
         )
     }
+}
+
+const deviceHeight = Dimensions.get("window").height;
+const deviceWidth = Dimensions.get("window").width;
+
+
+const styles = {
+    drawerCover: {
+        alignSelf: "stretch",
+        height: deviceHeight / 4.5,
+        width: null,
+        position: "relative",
+        marginBottom: 10
+    },
+    drawerImage: {
+        position: "absolute",
+        left: Platform.OS === "android" ? deviceWidth / 10 : deviceWidth / 9,
+        top: Platform.OS === "android" ? deviceHeight / 16 : deviceHeight / 12,
+        width: 210,
+        height: 60,
+        resizeMode: "cover"
+    },
 }

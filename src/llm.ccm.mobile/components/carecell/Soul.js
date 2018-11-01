@@ -9,7 +9,7 @@ import {
     Image
 } from "native-base";
 
-export class SoulAttendance extends React.Component {
+export class Soul extends React.Component {
 
     constructor(props) {
         super(props);

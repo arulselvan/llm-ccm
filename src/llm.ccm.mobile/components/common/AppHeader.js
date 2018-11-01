@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
-export default class AppHeader extends Component {
+import {Text, Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+
+export class AppHeader extends Component {
   render() {
     return (
-      <Container>
-        <Header>
+        <Header style={{paddingTop:30,height:80,backgroundColor:'#A40730'}}>
           <Left>
             <Button transparent>
-              <Icon name='arrow-back' />
+              <Icon name='arrow-back' onPress={()=>this.props.navigation.goBack()}/>
             </Button>
           </Left>
           <Body>
-            <Title>Header</Title>
+            <Title>{this.props.title}</Title>
           </Body>
           <Right>
-            <Button transparent>
-              <Icon name='menu' />
+          <Button transparent>
+              <Icon name='menu' onPress={()=>this.props.navigation.openDrawer()}/>
             </Button>
           </Right>
         </Header>
-      </Container>
     );
   }
 }
