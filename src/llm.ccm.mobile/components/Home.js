@@ -8,7 +8,7 @@ export class Home extends Component {
         return (
             <Container>
                 <AppHeader navigation={this.props.navigation} title={'Home'}/>
-                <H1>Welcome!</H1>             
+                <H1>Welcome to CCM</H1>             
             </Container>
 
         )

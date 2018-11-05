@@ -4,7 +4,8 @@
     "password": "root",
     "database": "llm_ccm_dev",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": "false"
   },
   "test": {
     "username": "root",
