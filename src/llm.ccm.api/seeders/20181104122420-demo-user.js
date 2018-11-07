@@ -1,4 +1,5 @@
 'use strict';
+const db = require('../models/index');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -13,6 +14,10 @@ module.exports = {
       }], {});
     */
 
+    return db.sequelize.sync();
+
+   /*db.sequelize.sync({force:true}).then(result =>{
+
     return queryInterface.bulkInsert('Users',[{
       userName:'test',
       password:'test',
@@ -23,6 +28,12 @@ module.exports = {
       createdAt:new Date(),
       updatedAt:new Date()
     }])
+
+   })*/
+
+   /*return db.sequelize.sync({ force: true });*/
+
+   
   },
 
   down: (queryInterface, Sequelize) => {

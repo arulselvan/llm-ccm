@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     User.belongsToMany(models.Role,{
       through: 'UserRole'
     })
+
+    User.belongsToMany(models.CareCell,{
+      through :'CareCellUsers'
+    })
   };
   return User;
 };
