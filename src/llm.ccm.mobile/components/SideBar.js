@@ -13,30 +13,31 @@ import {
 
 const careCellRoutesDataList = [
     {
-        text:"Souls",
-        route:"Soul",
+        text: "Souls Attendance",
+        route: "Soul",
         icon: "md-people"
-    }, 
+    },
     {
-        text:"Leaders",
-        route:"Leader",
+        text: "Leaders Attendance",
+        route: "Leader",
         icon: "md-man"
-    }, 
+    },
     {
-        text:"Prayer Request",
-        route:"PrayerRequest",
-        icon: "md-help-circle"
-    }, 
-    {
-        text:"House Visit",
-        route:"HouseVisit",
-        icon: "md-home"
-    },     
-    {
-        text:"Church Service",
-        route:"ChurchService",
+        text: "Church Service Attendance",
+        route: "ChurchService",
         icon: "arrow-forward"
-    }]
+    },
+    {
+        text: "Prayer Request",
+        route: "PrayerRequest",
+        icon: "md-help-circle"
+    },
+    {
+        text: "House Visit",
+        route: "HouseVisit",
+        icon: "md-home"
+    }
+]
 
 const drawerCover = require("../assets/logo.png");
 
@@ -53,15 +54,15 @@ export class SideBar extends React.Component {
 
     goTo = (routeName) => {
         this.props.navigation.navigate(routeName)
-    }  
+    }
 
     render() {
 
         let careCellRoutes = null;
 
-        if(careCellRoutesDataList.length > 0){
-            careCellRoutes = careCellRoutesDataList.map((routeDetail,index) =>{
-                return(
+        if (careCellRoutesDataList.length > 0) {
+            careCellRoutes = careCellRoutesDataList.map((routeDetail, index) => {
+                return (
                     <ListItem key={index} icon onPress={() => this.goTo(routeDetail.route)}>
                         <Left>
                             <Button style={{ backgroundColor: "#9ECC5A" }}>
@@ -69,7 +70,7 @@ export class SideBar extends React.Component {
                             </Button>
                         </Left>
                         <Body>
-                            <Text>{routeDetail.text}</Text>
+                            <Text style={styles.listItemText}>{routeDetail.text}</Text>
                         </Body>
                         <Right>
                             <Icon name="arrow-forward" />
@@ -86,10 +87,10 @@ export class SideBar extends React.Component {
 
                     <Content style={styles.drawerCover}>
                         <Text style={{ paddingTop: 100, textAlign: "left" }}>
-                            Welcome User!   
+                            Welcome User!
                         </Text>
-                        <Button title="Logout" style={{ paddingTop: 100, backgroundColor: "red" }} onPress={() => this._signOutAsync()}> 
-                            
+                        <Button title="Logout" style={{ paddingTop: 100, backgroundColor: "red" }} onPress={() => this._signOutAsync()}>
+
                         </Button>
                     </Content>
 
@@ -98,7 +99,7 @@ export class SideBar extends React.Component {
                         <Separator bordered>
                             <Text>Care Cell</Text>
                         </Separator>
-                         {careCellRoutes}
+                        {careCellRoutes}
                         <Separator bordered>
                             <Text>Region</Text>
                         </Separator>
@@ -132,4 +133,8 @@ const styles = {
         height: 60,
         resizeMode: "cover"
     },
+    listItemText: {
+        fontSize: 12,
+        color: '#0089B7'
+    }
 }

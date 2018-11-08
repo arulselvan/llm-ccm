@@ -6,17 +6,15 @@ export class AppHeader extends Component {
     return (
         <Header style={{paddingTop:30,height:80,backgroundColor:'#A40730'}}>
           <Left>
-            <Button transparent>
-              <Icon name='arrow-back' onPress={()=>this.props.navigation.goBack()}/>
+           <Button transparent>
+              <Icon name='menu' onPress={()=>this.props.navigation.openDrawer()}/>
             </Button>
           </Left>
           <Body>
             <Title>{this.props.title}</Title>
           </Body>
           <Right>
-          <Button transparent>
-              <Icon name='menu' onPress={()=>this.props.navigation.openDrawer()}/>
-            </Button>
+           
           </Right>
         </Header>
     );
