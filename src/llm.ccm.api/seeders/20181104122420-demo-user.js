@@ -14,7 +14,7 @@ module.exports = {
       }], {});
     */
 
-    return db.sequelize.sync();
+    return db.sequelize.sync({force:true});
 
    /*db.sequelize.sync({force:true}).then(result =>{
 

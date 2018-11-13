@@ -23,7 +23,7 @@ module.exports = {
 
     soulsAttendance(req,res){
         return CareCellSoulsAttendance
-        .create({date:req.body.date,name:req.body.name,CareCellId:req.body.careCellId})
+        .bulkCreate(req.body)
         .then(ccAttendence=>{
             res.status(200).send(ccAttendence);
         })

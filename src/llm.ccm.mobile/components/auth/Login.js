@@ -25,8 +25,10 @@ export class Login extends React.Component {
     }
 
     _signInAsync = async () => {
+        console.log('inside signIn!')
         try {
             let userInfo = await API.get('user/' + this.state.userName);
+            
             if(userInfo.data){
                 await AsyncStorage.setItem('userToken', JSON.stringify(userInfo.data))
                 this.props.navigation.navigate('App');
@@ -38,7 +40,6 @@ export class Login extends React.Component {
         catch (error) {
             console.log(error);
         }
-
     };
 
     render() {

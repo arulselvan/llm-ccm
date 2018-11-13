@@ -8,7 +8,7 @@ import {
     ListItem,
     Content,
     Icon,
-    Right, Left, Body, Separator
+    Right, Left, Body, Separator, Item
 } from "native-base";
 
 const careCellRoutesDataList = [
@@ -86,15 +86,21 @@ export class SideBar extends React.Component {
                     style={{ flex: 1, backgroundColor: "#fff", top: -1 }}>
 
                     <Content style={styles.drawerCover}>
-                        <Text style={{ paddingTop: 100, textAlign: "left" }}>
-                            Welcome User!
-                        </Text>
-                        <Button title="Logout" style={{ paddingTop: 100, backgroundColor: "red" }} onPress={() => this._signOutAsync()}>
-
-                        </Button>
+                       <Item style={{paddingLeft:10,paddingRight:10}}>
+                        <Left>
+                            <Text>
+                                Welcome Arul!
+                            </Text>
+                        </Left>
+                        <Right>                  
+                           
+                            <Icon name="md-power" onPress={() => this._signOutAsync()} style={{color:'red'}} />
+                           
+                        </Right>
+                        </Item>
                     </Content>
 
-                    <Image source={require('../assets/logo.png')} square style={styles.drawerImage} />
+
                     <List>
                         <Separator bordered>
                             <Text>Care Cell</Text>
@@ -103,9 +109,11 @@ export class SideBar extends React.Component {
                         <Separator bordered>
                             <Text>Region</Text>
                         </Separator>
-                        <ListItem button onPress={() => this._signOutAsync()} >
-                            <Text>LogOut</Text>
-                        </ListItem>
+
+                        <Separator bordered>
+                            <Text>Admin</Text>
+                        </Separator>
+                        
                     </List>
                 </Content>
             </Container>
@@ -119,11 +127,11 @@ const deviceWidth = Dimensions.get("window").width;
 
 const styles = {
     drawerCover: {
-        alignSelf: "stretch",
-        height: deviceHeight / 4.5,
+        height: deviceHeight / 12,
         width: null,
-        position: "relative",
-        marginBottom: 10
+        marginBottom: 10,
+        marginTop: 28
+
     },
     drawerImage: {
         position: "absolute",

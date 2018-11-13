@@ -5,6 +5,7 @@ import { Login } from '../auth/Login';
 import { SoulAttendance } from '../carecell/SoulAttendance';
 import { Home } from '../Home';
 import { AuthLoading } from '../auth/AuthLoading';
+import { LeaderAttendance } from '../carecell/LeaderAttendance';
 import { Leader } from '../carecell/Leader';
 import { PrayerRequest } from '../carecell/PrayerRequest';
 

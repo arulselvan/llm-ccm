@@ -26,10 +26,12 @@ app.get('*', (req, res) => res.status(200).send({
 }));
 
 
-const port = parseInt(process.env.PORT, 10) || 8000;
+const port = parseInt(process.env.PORT, 10) || 3005;
 
 app.set('port', port);
 const server = http.createServer(app);
-server.listen(port);
+server.listen(port,function(){
+    console.log('Server started at port = ',port);
+});
 
 module.exports = app;
