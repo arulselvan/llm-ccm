@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "llm.ccm.mobile",
+    "name": "llm.ccm",
     "description": "This project is really great.",
     "slug": "llm-ccm-mobile",
     "privacy": "public",
@@ -21,7 +21,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.llm.ccm"
     },
     "android" :{
       "package":"com.llm.ccm",

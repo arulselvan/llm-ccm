@@ -1,11 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "llm_ccm_dev",
-    "host": "localhost",
-    "dialect": "mysql",
-    "operatorsAliases": "false"
+    "username": "arulsmdd_llm",
+    "password": "jesus@143",
+    "database": "arulsmdd_llm_ccm",
+    "host": "arulselvan.net",
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
